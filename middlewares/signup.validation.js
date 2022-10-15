@@ -1,6 +1,6 @@
 import Joi from "joi";
 
-const schemaSignIn = Joi.object({
+const schemaSignUp = Joi.object({
     name: Joi.string()
         .min(1)
         .required(),
@@ -19,8 +19,8 @@ const schemaSignIn = Joi.object({
         .required()
 })   
 
-function ValidateSignIn(req, res, next){
-    const validation = schemaSignIn.validate(req.body, { abortEarly: false });
+function ValidateSignUp(req, res, next){
+    const validation = schemaSignUp.validate(req.body, { abortEarly: false });
     
     if (validation.error) {
         console.log(validation.error.message);
@@ -35,4 +35,4 @@ function ValidateSignIn(req, res, next){
     next();
 }
 
-export { ValidateSignIn };
+export { ValidateSignUp };
